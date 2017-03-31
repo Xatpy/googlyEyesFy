@@ -24,14 +24,22 @@
       right: 0;
       bottom: 0;
     }
+
   </style>
 </head>
-<body>
-      
+  <body>
+    <div class="demo-title">
+      <p>GooglyEyesFY</p>
+    </div>
     <div class="demo-container">
       <img id="img" src="./data/faces.jpg" />
       <!--<img id="img" src="assets/faces.jpg" />-->
     </div>
+    <p id="status" style="text-align: center">googlyeyefy...ING.... Wait please</p>
+    </div>
+
+    <input type='file' id='getval' name="background-image" /><br/><br/>
+    <div id='clock'></div>
 
   <script>
     window.onload = function() {
@@ -45,11 +53,12 @@
       tracker.on('track', function(event) {
         if (event.data.length == 0) {
           console.log("No eyes detected.");
-          return;
+          document.getElementById("status").innerHTML = "No eyes detected :( Please, try with another photo.";
         }
 
         event.data.forEach(function(rect) {
           window.plot(rect.x, rect.y, rect.width, rect.height, false);
+          document.getElementById("status").innerHTML = "Done!";
         });
       });
 
@@ -84,6 +93,22 @@
         createEyeImage(rect);
       };
     };
+
+    document.getElementById('getval').addEventListener('change', readURL, true);
+    function readURL(){
+       var file = document.getElementById("getval").files[0];
+       var reader = new FileReader();
+       reader.onloadend = function(){
+          //newImage();
+          document.getElementById('img').src = reader.result;
+       }
+       if(file){
+        debugger
+          reader.readAsDataURL(file);
+        }else{
+          //error
+        }
+    }
   </script>
 
 </body>

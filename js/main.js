@@ -1,25 +1,7 @@
 // Tracker is global
-var tracker = new tracking.ObjectTracker(['eye']);
-tracker.setStepSize(1.7);
 
-function trackEyes() {
-  removeOldEyes();
 
-  tracking.track('#img', tracker);
-  tracker.on('track', function(event) {
-    if (event.data.length == 0) {
-      console.log("No eyes detected.");
-      document.getElementById("status").innerHTML = "No eyes detected :( Please, try with another photo.";
-      return;
-    }
-
-    event.data.forEach(function(rect) {
-      var rect = detectEyes(rect.x, rect.y, rect.width, rect.height, false);
-      document.getElementById("status").innerHTML = "Done!";
-    });
-  });
-
-  function createEyeImage(rectElement) {
+function createEyeImage(rectElement) {
     var imageEye = new Image();
     imageEye.style.maxWidth = "60%";
     imageEye.style.position = "absolute";
@@ -49,6 +31,28 @@ function trackEyes() {
     
     createEyeImage(rect);
   };
+
+function trackEyes() {
+  var tracker = new tracking.ObjectTracker(['eye']);
+  tracker.setStepSize(1.7);
+  //tracking.stop();
+  removeOldEyes();
+  //tracker.run();
+  tracking.track('#img', tracker);
+
+
+  tracker.on('track', function(event) {
+    if (event.data.length == 0) {
+      console.log("No eyes detected.");
+      document.getElementById("status").innerHTML = "No eyes detected :( Please, try with another photo.";
+      return;
+    }
+
+    event.data.forEach(function(rect) {
+      var rect = detectEyes(rect.x, rect.y, rect.width, rect.height, false);
+      document.getElementById("status").innerHTML = "Done!";
+    });
+  });
 }
 
 function removeOldEyes() {

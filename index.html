@@ -4,48 +4,35 @@
   <meta charset="utf-8">
   <title>Googly Eyes FY</title>
   <link rel="stylesheet" href="./css/demo.css">
+  <link rel="stylesheet" href="./css/styles.css">
   <link rel="shortcut icon" type="image/png" href="./data/favicon.png"/>
 
   <script src="./js/tracking-min.js"></script>
   <script src="./js/data/eye-min.js"></script>
-
   <script src="./js/main.js"></script>
 
-  <style>
-    .rect {
-      border: 2px solid #a64ceb;
-      left: -1000px;
-      position: absolute;
-      top: -1000px;
-    }
-
-    #img {
-      position: absolute;
-      margin: auto;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      max-width: 100%;
-      max-height: 100%;
-    }
-
-  </style>
 </head>
   <body>
     <div class="demo-title">
       <p>GooglyEyesFY</p>
     </div>
     <div id="mainContainer" class="demo-container">
+      <div id="buttonsDiv" style="margin-top: 50px">
+        Upload a photo: 
+        <input type='file' id='getval' name="background-image" /><br/><br/>
+        <button onclick="reload()">Reload tracking</button>
+      </div>
+
       <img id="img" src="./data/faces.jpg" />
       <!--<img id="img" src="assets/faces.jpg" />-->
     </div>
     <p id="status" style="text-align: center">googlyeyefy...ING.... Wait please</p>
     </div>
 
-    <input type='file' id='getval' name="background-image" /><br/><br/>
-    
-    URL link: <input type="text" name="urlLink" id="urlLink"> 
-    <button onclick="loadLink()">Click me</button>
+    <div id="loading">
+      <br><br>
+      <h2 id="cargandoLabel">Cargando...</h2>
+      <img id="loading-image"alt="Loading..." class="swing"/>
+    </div>
 </body>
 </html>

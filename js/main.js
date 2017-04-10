@@ -1,5 +1,6 @@
-// Tracker is global
-
+function showLoadingSpinner(value) {
+  document.getElementById("loading").style.display = value ? "block": "none" ;
+}
 
 function createEyeImage(rectElement) {
     var imageEye = new Image();
@@ -33,6 +34,7 @@ function createEyeImage(rectElement) {
   };
 
 function trackEyes() {
+  showLoadingSpinner(false);
   var tracker = new tracking.ObjectTracker(['eye']);
   tracker.setStepSize(1.7);
   //tracking.stop();
@@ -40,8 +42,9 @@ function trackEyes() {
   //tracker.run();
   tracking.track('#img', tracker);
 
-
+  console.log('trackEyes()');
   tracker.on('track', function(event) {
+    console.log('tracker.on');
     if (event.data.length == 0) {
       console.log("No eyes detected.");
       document.getElementById("status").innerHTML = "No eyes detected :( Please, try with another photo.";
@@ -68,22 +71,27 @@ function removeOldEyes() {
 
 window.onload = function() {
   trackEyes();
+  showLoadingSpinner(false);
 
   document.getElementById('getval').addEventListener('change', readURL, true);
 };
 
-function readURL(){
-    var file = document.getElementById("getval").files[0];
-    var reader = new FileReader();
-    reader.onloadend = function(){
-      document.getElementById('img').src = reader.result;
-      trackEyes();
-    }
-    if(file){
-      reader.readAsDataURL(file);
-    }
+function readURL() {
+  showLoadingSpinner(true);
+  var file = document.getElementById("getval").files[0];
+  var reader = new FileReader();
+  reader.onloadend = function() {
+    var img = new Image();
+    img.src = reader.result;
+    img.src = reader.result;
+    document.getElementById('img').src = reader.result;
+    setTimeout(function(){trackEyes()},500);
+  }
+  if (file) {
+    reader.readAsDataURL(file);
+  }
 }
-
+/*
 function loadLink() {
   var urlLink = document.getElementById('urlLink').value;
   if (checkURL(urlLink)) {
@@ -96,4 +104,9 @@ function loadLink() {
 
 function checkURL(url) {
     return(url.match(/\.(jpeg|jpg|png)$/) != null);
+}
+*/
+
+function reload() {
+  trackEyes();
 }

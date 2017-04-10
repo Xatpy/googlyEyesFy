@@ -1,0 +1,40 @@
+.rect {
+  border: 2px solid #a64ceb;
+  left: -1000px;
+  position: absolute;
+  top: -1000px;
+}
+
+#img {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#loading {  
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  width: 30em;
+  height: 18em;
+  margin-top: -9em; 
+  margin-left: -15em; 
+  border: 5px solid #ccc;
+  /*background-color: #769396;*/
+  background-color: #283C63;
+}
+
+#loading-image { 
+  position: absolute; 
+  top: 40%; 
+  left: 45%; 
+  z-index: 100;
+  max-width: 150px; 
+  max-height: 150px; 
+  margin-left: -50px;
+} 

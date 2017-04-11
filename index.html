@@ -13,17 +13,18 @@
 
 </head>
   <body>
-    <div class="demo-title">
-      <p>GooglyEyesFY</p>
+    <div class="title">
+      <h1>GooglyEyesFY</h1>
     </div>
-    <div id="mainContainer" class="demo-container">
-      <div id="buttonsDiv" style="margin-top: 50px">
+    <div id="mainContainer" class="container">
+      <div id="buttonsDiv" class="buttonsDiv">
         Upload a photo: 
-        <input type='file' id='getval' name="background-image" /><br/><br/>
+        <input type='file' id='getval' name="background-image" />
+        <span>
         <button onclick="reload()">Reload tracking</button>
       </div>
 
-      <img id="img" src="./data/faces.jpg" />
+      <img id="img" class="mainImage" src="./data/faces.jpg" />
       <!--<img id="img" src="assets/faces.jpg" />-->
     </div>
     <p id="status" style="text-align: center">googlyeyefy...ING.... Wait please</p>

@@ -22,7 +22,7 @@ function createEyeImage(rectElement) {
 
   function detectEyes(x, y, w, h, showRect) {
     var rect = document.createElement('div');
-    document.querySelector('.demo-container').appendChild(rect);
+    document.querySelector('.container').appendChild(rect);
     rect.classList.add('rect');
     rect.style.width = w + 'px';
     rect.style.height = h + 'px';
@@ -34,7 +34,6 @@ function createEyeImage(rectElement) {
   };
 
 function trackEyes() {
-  showLoadingSpinner(false);
   var tracker = new tracking.ObjectTracker(['eye']);
   tracker.setStepSize(1.7);
   //tracking.stop();
@@ -44,6 +43,7 @@ function trackEyes() {
 
   console.log('trackEyes()');
   tracker.on('track', function(event) {
+    showLoadingSpinner(false);
     console.log('tracker.on');
     if (event.data.length == 0) {
       console.log("No eyes detected.");
@@ -82,7 +82,6 @@ function readURL() {
   var reader = new FileReader();
   reader.onloadend = function() {
     var img = new Image();
-    img.src = reader.result;
     img.src = reader.result;
     document.getElementById('img').src = reader.result;
     setTimeout(function(){trackEyes()},500);

@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Googly Eyes FY</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <link rel="stylesheet" href="./css/demo.css">
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="shortcut icon" type="image/png" href="./data/favicon.png"/>
@@ -21,7 +23,8 @@
         Upload a photo: 
         <input type='file' id='getval' name="background-image" />
         <span>
-        <button onclick="reload()">Reload tracking</button>
+        <br>
+        <button class="reloadButton" onclick="reload()">Reload tracking</button>
       </div>
 
       <img id="img" class="mainImage" src="./data/faces.jpg" />
@@ -30,9 +33,8 @@
     <p id="status" style="text-align: center">googlyeyefy...ING.... Wait please</p>
     </div>
 
-    <div id="loading">
-      <br><br>
-      <h2 id="cargandoLabel">Cargando...</h2>
+    <div id="loading" class="loading">
+      <h2 id="cargandoLabel" class="labelLoading">Cargando...</h2>
       <img id="loading-image"alt="Loading..." class="swing"/>
     </div>
 </body>

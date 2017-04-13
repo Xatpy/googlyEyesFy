@@ -1,3 +1,7 @@
+* {
+  font-family: 'Lobster', cursive;
+}
+
 .rect {
   border: 2px solid #a64ceb;
   left: -1000px;
@@ -21,10 +25,10 @@
   position:fixed;
   top: 50%;
   left: 50%;
-  width: 30em;
-  height: 18em;
-  margin-top: -9em; 
-  margin-left: -15em; 
+  width: 50em;
+  height: 28em;
+  margin-top: -22em; 
+  margin-left: -22em; 
   border: 5px solid #ccc;
   /*background-color: #769396;*/
   background-color: #283C63;
@@ -63,12 +67,27 @@
   padding: .7em 0;
 } 
 
-.title > h1{
+.title > h1 {
   color: white;
   text-align: center;
+  letter-spacing: 2px;
 }
 
 .mainImage {
   max-width: 500px;
   max-height: 350px;
+}
+
+.labelLoading {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.loading {
+  opacity: 0.95;
+}
+
+.reloadButton {
+  padding: 4px;
+  cursor: pointer;
 }

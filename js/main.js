@@ -1,3 +1,14 @@
+window.onload = function() {
+  trackEyes();
+  showLoadingSpinner(false);
+
+  document.getElementById('getval').addEventListener('change', readURL, true);
+};
+
+window.onresize = function(event) {
+  reload();
+};
+
 function showLoadingSpinner(value) {
   document.getElementById("loading").style.display = value ? "block": "none" ;
 }
@@ -34,6 +45,7 @@ function createEyeImage(rectElement) {
   };
 
 function trackEyes() {
+  showLoadingSpinner(true);
   var tracker = new tracking.ObjectTracker(['eye']);
   tracker.setStepSize(1.7);
   //tracking.stop();
@@ -47,13 +59,11 @@ function trackEyes() {
     console.log('tracker.on');
     if (event.data.length == 0) {
       console.log("No eyes detected.");
-      document.getElementById("status").innerHTML = "No eyes detected :( Please, try with another photo.";
       return;
     }
 
     event.data.forEach(function(rect) {
       var rect = detectEyes(rect.x, rect.y, rect.width, rect.height, false);
-      document.getElementById("status").innerHTML = "Done!";
     });
   });
 }
@@ -69,13 +79,6 @@ function removeOldEyes() {
   }
 }
 
-window.onload = function() {
-  trackEyes();
-  showLoadingSpinner(false);
-
-  document.getElementById('getval').addEventListener('change', readURL, true);
-};
-
 function readURL() {
   showLoadingSpinner(true);
   var file = document.getElementById("getval").files[0];
@@ -90,21 +93,6 @@ function readURL() {
     reader.readAsDataURL(file);
   }
 }
-/*
-function loadLink() {
-  var urlLink = document.getElementById('urlLink').value;
-  if (checkURL(urlLink)) {
-      document.getElementById('img').src = urlLink;
-      trackEyes();
-  } else {
-    alert("Please insert a jpeg|jpg|png url file");
-  }
-}
-
-function checkURL(url) {
-    return(url.match(/\.(jpeg|jpg|png)$/) != null);
-}
-*/
 
 function reload() {
   trackEyes();

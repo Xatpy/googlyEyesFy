@@ -18,11 +18,12 @@
   bottom: 0;
   max-width: 600px;
   max-height: 400px;
-  margin-top: 125px;
+  margin-top: 150px;
+  border:2px solid #222222;
 }
 
 #loading {  
-  position:fixed;
+  /*position:fixed;
   top: 50%;
   left: 50%;
   width: 50em;
@@ -30,7 +31,18 @@
   margin-top: -22em; 
   margin-left: -22em; 
   border: 5px solid #ccc;
-  /*background-color: #769396;*/
+  /*background-color: #769396;
+  background-color: #283C63;
+  */
+   position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  width: 75vw;
+  height: 75vh;
+  border: 5px solid #ccc;
   background-color: #283C63;
 }
 
@@ -42,7 +54,11 @@
   max-width: 150px; 
   max-height: 150px; 
   margin-left: -50px;
-} 
+}
+
+#loading > h2 {
+  color: darkgrey;
+}
 
 .container {
   width: 100%;
@@ -85,9 +101,18 @@
 
 .loading {
   opacity: 0.95;
+  z-index: 10;
 }
 
 .reloadButton {
   padding: 4px;
   cursor: pointer;
+  margin-top: 10px;
+  border-radius: 28px;
+  background-color:lightslategrey;
+}
+
+.reloadButton:hover {
+  border-radius: 30px;
+  background-color:slategray;
 }

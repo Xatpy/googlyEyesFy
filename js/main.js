@@ -14,50 +14,48 @@ function showLoadingSpinner(value) {
 }
 
 function createEyeImage(rectElement) {
-    var imageEye = new Image();
-    imageEye.style.maxWidth = "60%";
-    imageEye.style.position = "absolute";
-    imageEye.style.margin = "auto";
-    imageEye.style.top = 0;
-    imageEye.style.left = 0;
-    imageEye.style.right = 0;
-    imageEye.style.bottom = 0;
-    var rotationRandom = Math.floor((Math.random() * 360));
-    imageEye.style.transform = "rotate(" + rotationRandom + "deg)";
-    
-    imageEye.onload = function() {
-      rectElement.appendChild(imageEye);
-    };
-    imageEye.src = './data/eye.png';
-  }
-
-  function detectEyes(x, y, w, h, showRect) {
-    var rect = document.createElement('div');
-    document.querySelector('.container').appendChild(rect);
-    rect.classList.add('rect');
-    rect.style.width = w + 'px';
-    rect.style.height = h + 'px';
-    rect.style.left = (img.offsetLeft + x) + 'px';
-    rect.style.top = (img.offsetTop + y) + 'px';
-    showRect ? (rect.style.borderColor = "#FF0000") : (rect.style.border = "none");
-    
-    createEyeImage(rect);
+  var imageEye = new Image();
+  imageEye.style.maxWidth = "60%";
+  imageEye.style.position = "absolute";
+  imageEye.style.margin = "auto";
+  imageEye.style.top = 0;
+  imageEye.style.left = 0;
+  imageEye.style.right = 0;
+  imageEye.style.bottom = 0;
+  var rotationRandom = Math.floor((Math.random() * 360));
+  imageEye.style.transform = "rotate(" + rotationRandom + "deg)";
+  
+  imageEye.onload = function() {
+    rectElement.appendChild(imageEye);
   };
+  imageEye.src = './data/eye.png';
+}
+
+function detectEyes(x, y, w, h, showRect) {
+  var rect = document.createElement('div');
+  document.querySelector('.container').appendChild(rect);
+  rect.classList.add('rect');
+  rect.style.width = w + 'px';
+  rect.style.height = h + 'px';
+  rect.style.left = (img.offsetLeft + x) + 'px';
+  rect.style.top = (img.offsetTop + y) + 'px';
+  showRect ? (rect.style.borderColor = "#FF0000") : (rect.style.border = "none");
+  
+  createEyeImage(rect);
+};
 
 function trackEyes() {
   showLoadingSpinner(true);
   var tracker = new tracking.ObjectTracker(['eye']);
   tracker.setStepSize(1.7);
-  //tracking.stop();
   removeOldEyes();
-  //tracker.run();
   tracking.track('#img', tracker);
 
-  console.log('trackEyes()');
   tracker.on('track', function(event) {
+    document.getElementById("message").style.visibility = "hidden";
     showLoadingSpinner(false);
-    console.log('tracker.on');
-    if (event.data.length == 0) {
+    if (event.data.length <= 0) {
+      document.getElementById("message").style.visibility = "visible";
       console.log("No eyes detected.");
       return;
     }

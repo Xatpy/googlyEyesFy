@@ -5,7 +5,6 @@
   <title>GooglyEyesFY</title>
 
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-  <link rel="stylesheet" href="./css/demo.css">
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="icon" type="image/gif" href="./data/faviconGIF.gif"/>
 
@@ -18,19 +17,19 @@
     <div class="title">
       <h1>GooglyEyesFY</h1>
     </div>
+
     <div id="mainContainer" class="container">
       <div id="buttonsDiv" class="buttonsDiv">
         Upload a photo: 
-        <input type='file' id='getval' name="background-image" />
-        <span>
+        <input type='file' accept=".jpg, .png, .jpeg |images/*"id='getval' name="background-image" />
         <br>
         <button class="reloadButton" onclick="reload()">Reload tracking</button>
+        <br>
+        <span id="message" class="message">No eyes detected :( . Please, try with another picture.</span>
       </div>
 
       <img id="img" class="mainImage" src="./data/faces.jpg" />
       <!--<img id="img" src="assets/faces.jpg" />-->
-    </div>
-    <p id="status" style="text-align: center">googlyeyefy...ING.... Wait please</p>
     </div>
 
     <div id="loading" class="loading">

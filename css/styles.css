@@ -18,8 +18,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  max-width: 600px;
-  max-height: 400px;
+  /*max-width: 600px;
+  max-height: 400px;*/
+  max-width: 70vw;
+  max-height: 70vh;
   margin-top: 175px;
   border:2px solid #222222;
 }
@@ -63,7 +65,7 @@
 
 .buttonsDiv {
   text-align: center;
-  margin-top: 75px;
+  margin-top: 90px;
 }
 
 .title {
@@ -75,9 +77,10 @@
 } 
 
 .title > h1 {
+  font-size: 3vw;
   color: white;
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 .mainImage {
@@ -102,7 +105,7 @@ input[type=file] {
 }
 
 .reloadButton {
-  padding: 4px;
+  padding: 8px;
   cursor: pointer;
   margin-top: 10px;
   margin-bottom: 7px;
@@ -163,3 +166,78 @@ input[type=file] {
     opacity: 1;
 }
 /*******************************************/
+
+/*  
+    MOBILE
+    Portrait and Landscape 
+*/
+@media only screen 
+  and (min-device-width: 75px) 
+  and (max-device-width: 667px) 
+  and (orientation: portrait) { 
+    .title {
+      font-size: 5vw;
+    }
+
+    .title > h1 {
+      font-size: 6vw;
+    }
+
+    .container {
+      font-size: 3.5vw;
+    }
+
+    .buttonsDiv {
+      margin-top: 200px;
+    }
+
+    .reloadButton {
+      padding: 15px;
+      font-size: 3.5vw;
+      margin-top: 50px;
+    }
+
+    #img {
+      margin-top: 500px;
+      max-width: 740px;
+      max-height: 540px;
+    }
+}
+
+/*  
+    TABLET
+    Portrait and Landscape 
+*/
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .title {
+      padding: 1.7em 0;      
+    }
+
+    .title > h1 {
+      font-size: 6vw;
+    }
+
+     .container {
+      font-size: 3.5vw;
+    }
+
+    .buttonsDiv {
+      margin-top: 163px;
+    }
+
+    .reloadButton {
+      padding: 15px;
+      font-size: 3.5vw;
+      margin-top: 50px;
+    }
+
+    #img {
+      margin-top: 450px;
+      /*max-width: 740px;
+      max-height: 540px;*/
+    }
+}

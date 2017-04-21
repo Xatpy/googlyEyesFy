@@ -22,8 +22,8 @@
   max-height: 400px;*/
   max-width: 70vw;
   max-height: 70vh;
-  margin-top: 175px;
-  border:2px solid #222222;
+  margin-top: 220px;
+  border: 2px solid #1B5563;
 }
 
 #loading {
@@ -65,13 +65,13 @@
 
 .buttonsDiv {
   text-align: center;
-  margin-top: 90px;
+  margin-top: 115px;
 }
 
 .title {
   position: absolute;
   width: 100%;
-  background: #2e2f33;
+  background: #2D2D2D;
   z-index: 2;
   padding: .7em 0;
 } 
@@ -105,17 +105,19 @@ input[type=file] {
 }
 
 .reloadButton {
+  color: #B8654D;
   padding: 8px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 7px;
   border-radius: 28px;
-  background-color:lightslategrey;
+  background-color: #505050;
+  border-color: #C29C4C;
 }
 
 .reloadButton:hover {
   border-radius: 30px;
-  background-color:slategray;
+  background-color: #C3C3C3;
 }
 
 .message {

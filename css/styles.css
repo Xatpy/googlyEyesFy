@@ -137,7 +137,7 @@ input[type=file] {
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 120px;
+    width: 240px;
     background-color: #555;
     color: #fff;
     text-align: center;
@@ -145,11 +145,12 @@ input[type=file] {
     padding: 5px 0;
     position: absolute;
     z-index: 1;
-    bottom: -270%;
+    bottom: -200%;
     left: 50%;
     margin-left: -60px;
     opacity: 0;
     transition: opacity 0.75s;
+    font-size: 20px;
 }
 
 .tooltip .tooltiptext::after {
